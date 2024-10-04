@@ -4,7 +4,17 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            string pesel = "55030101193";
+        }
+
+        public static char SprawdzPlec(string pesel)
+        {
+            return 'K';
+        }
+
+        public static bool SprawdzSumeKontrolna(string pesel)
+        {
+            return true;
         }
     }
 }
