@@ -11,14 +11,14 @@ namespace ConsoleApp1
             string buffer = Console.ReadLine();
             pesel = String.IsNullOrEmpty(buffer) == true ? "55030101193" : buffer;
             Console.Write("Twoja plec to: ");
-            Console.WriteLine(SprawdzPlec(pesel) == 'K' ? "Kobieta" : "Męszczyna");
+            Console.WriteLine(SprawdzPlec(pesel) == 'K' ? "Kobieta" : "Mężczyzna");
             
             Console.WriteLine(SprawdzSumeKontrolna(pesel) == true ? "Twoj pesel jest poprawny" : "Twoj pesel jest niepoprawny");
         }
 
         public static char SprawdzPlec(string pesel)
         {
-            return Convert.ToInt32(pesel[9]) % 2 == 0 ? 'K' : 'M';
+            return Convert.ToInt32(Convert.ToInt32(pesel[9] - '0')) % 2 == 0 ? 'K' : 'M';
         }
 
         public static bool SprawdzSumeKontrolna(string pesel)
@@ -40,7 +40,8 @@ namespace ConsoleApp1
             {
                 R = 10 - M;
             }
-            return (R == pesel[10]) ? false : true;
+            if (R == Convert.ToInt32(pesel[10] - '0')) return true;
+            else return false;
         }
     }
 }
