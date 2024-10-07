@@ -16,6 +16,14 @@ namespace ConsoleApp1
             Console.WriteLine(SprawdzSumeKontrolna(pesel) == true ? "Twoj pesel jest poprawny" : "Twoj pesel jest niepoprawny");
         }
 
+        /**********************************************
+        nazwa funkcji:          SprawdzPlec
+        opis funkcji:           Sprawdza plec osoby z podanym numerem pesel
+        parametry:              pesel - łancuch znaków przechowujący numer pesel
+        zwracany typ i opis:    char - dla mężczyzn zwraca - 'M', a dla kobiet - 'K'
+        autor:                  PESEL
+        ***********************************************/
+
         public static char SprawdzPlec(string pesel)
         {
             return Convert.ToInt32(Convert.ToInt32(pesel[9] - '0')) % 2 == 0 ? 'K' : 'M';
@@ -34,7 +42,7 @@ namespace ConsoleApp1
                 S += liczba * wagi[i];
             }
             int M = S % 10;
-            int R = 0;
+            int R;
             if (M == 0) R = 0;
             else
             {
